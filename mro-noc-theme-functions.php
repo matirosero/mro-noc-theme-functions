@@ -38,7 +38,7 @@ add_action( 'plugins_loaded', 'mro_noc_load_textdomain' );
  *
  * @since 0.1.0
  */
-// require_once( dirname( __FILE__ ) . '/includes/helpers.php' );
+require_once( dirname( __FILE__ ) . '/includes/helpers.php' );
 
 
 /**
@@ -64,7 +64,7 @@ require_once( dirname( __FILE__ ) . '/includes/register-taxonomies.php' );
  */
 require_once( dirname( __FILE__ ) . '/includes/demo-register-custom-fields.php' );
 
-// require_once( dirname( __FILE__ ) . '/includes/register-custom-fields.php' );
+require_once( dirname( __FILE__ ) . '/includes/register-custom-fields.php' );
 
 
 /**
