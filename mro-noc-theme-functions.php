@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: CIT Theme Functions
-Plugin URI: https://github.com/matirosero/cit-theme-functions
-Description: Custom Genesis functions for the Nuts and Bolts Media website.
+Plugin Name: Noc Noc Theme Functions
+Plugin URI: https://github.com/matirosero/mro-noc-theme-functions
+Description: Custom functions for the Noc Noc website.
 Version: 0.1
 Author: Mat Rosero
 Author URI: https://www.matilderosero.com/
@@ -27,10 +27,10 @@ if ( file_exists( __DIR__ . '/vendor/cmb2/init.php' ) ) {
  *
  * @since 0.1.0
  */
-function mro_cit_load_textdomain() {
-	load_plugin_textdomain( 'mro-cit-cpt', false, basename( dirname( __FILE__ ) ) . '/languages' );
+function mro_noc_load_textdomain() {
+	load_plugin_textdomain( 'mro-nocf', false, basename( dirname( __FILE__ ) ) . '/languages' );
 }
-add_action( 'plugins_loaded', 'mro_cit_load_textdomain' );
+add_action( 'plugins_loaded', 'mro_noc_load_textdomain' );
 
 
 /**
@@ -38,7 +38,7 @@ add_action( 'plugins_loaded', 'mro_cit_load_textdomain' );
  *
  * @since 0.1.0
  */
-require_once( dirname( __FILE__ ) . '/includes/helpers.php' );
+// require_once( dirname( __FILE__ ) . '/includes/helpers.php' );
 
 
 /**
@@ -64,7 +64,7 @@ require_once( dirname( __FILE__ ) . '/includes/register-taxonomies.php' );
  */
 require_once( dirname( __FILE__ ) . '/includes/demo-register-custom-fields.php' );
 
-require_once( dirname( __FILE__ ) . '/includes/register-custom-fields.php' );
+// require_once( dirname( __FILE__ ) . '/includes/register-custom-fields.php' );
 
 
 /**
@@ -73,12 +73,4 @@ require_once( dirname( __FILE__ ) . '/includes/register-custom-fields.php' );
  *
  * @since 0.1.0
  */
-require_once( dirname( __FILE__ ) . '/includes/sort-columns.php' );
-
-
-/**
- * Add old URL to columns.
- *
- * @since 0.1.0
- */
-require_once( dirname( __FILE__ ) . '/includes/add-old-url-column.php' );
+// require_once( dirname( __FILE__ ) . '/includes/sort-columns.php' );
