@@ -64,7 +64,7 @@ require_once( dirname( __FILE__ ) . '/includes/register-taxonomies.php' );
  */
 require_once( dirname( __FILE__ ) . '/includes/demo-register-custom-fields.php' );
 
-require_once( dirname( __FILE__ ) . '/includes/register-custom-fields.php' );
+require_once( dirname( __FILE__ ) . '/includes/register-gen-project-fields.php' );
 
 
 /**
