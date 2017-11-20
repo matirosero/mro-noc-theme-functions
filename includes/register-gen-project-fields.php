@@ -1,7 +1,7 @@
 <?php
 
 
-add_action( 'cmb2_admin_init', 'mro_noc_register_project_contact_metabox' );
+add_action( 'cmb2_init', 'mro_noc_register_project_contact_metabox' );
 /**
  * Project contact information
  */
