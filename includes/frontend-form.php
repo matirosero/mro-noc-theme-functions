@@ -41,20 +41,47 @@ function wds_frontend_form_register() {
 
     $cmb_demo->add_field( array(
         'name' => esc_html__( 'Información de contacto del proyecto', 'mro-cit-cpt' ),
-        'id'   => $prefix . 'title',
+        'id'   => $prefix . 'title_contact',
         'type' => 'title',
     ) );
 
     include(dirname( __FILE__ ) . '/parts/project-fields-contact.php');
 
 
-$cmb_demo->add_field( array(
+    $cmb_demo->add_field( array(
         'name' => esc_html__( 'Información general', 'mro-cit-cpt' ),
-        'id'   => $prefix . 'title2',
+        'id'   => $prefix . 'title_gen_info',
         'type' => 'title',
     ) );
 
     include(dirname( __FILE__ ) . '/parts/project-fields-gen-info.php');
+
+
+    $cmb_demo->add_field( array(
+        'name' => esc_html__( 'Costo y financiamiento', 'mro-cit-cpt' ),
+        'id'   => $prefix . 'title_price',
+        'type' => 'title',
+    ) );
+
+    include(dirname( __FILE__ ) . '/parts/project-fields-price.php');
+
+
+    $cmb_demo->add_field( array(
+        'name' => esc_html__( 'Imágenes', 'mro-cit-cpt' ),
+        'id'   => $prefix . 'title_images',
+        'type' => 'title',
+    ) );
+
+    include(dirname( __FILE__ ) . '/parts/project-fields-images.php');
+
+
+    $cmb_demo->add_field( array(
+        'name' => esc_html__( 'Ubicación', 'mro-cit-cpt' ),
+        'id'   => $prefix . 'title_location',
+        'type' => 'title',
+    ) );
+
+    include(dirname( __FILE__ ) . '/parts/project-fields-location.php');
 
 }
 add_action( 'cmb2_init', 'wds_frontend_form_register' );
