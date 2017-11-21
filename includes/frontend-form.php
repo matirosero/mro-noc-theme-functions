@@ -47,6 +47,15 @@ function wds_frontend_form_register() {
 
     include(dirname( __FILE__ ) . '/parts/project-fields-contact.php');
 
+
+$cmb_demo->add_field( array(
+        'name' => esc_html__( 'Información general', 'mro-cit-cpt' ),
+        'id'   => $prefix . 'title2',
+        'type' => 'title',
+    ) );
+
+    include(dirname( __FILE__ ) . '/parts/project-fields-gen-info.php');
+
 }
 add_action( 'cmb2_init', 'wds_frontend_form_register' );
 
