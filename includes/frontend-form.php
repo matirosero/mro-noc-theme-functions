@@ -96,7 +96,7 @@ function wds_frontend_form_register() {
             'type' => 'title',
         ) );
 
-        include(dirname( __FILE__ ) . '/parts/project-fields-super.php');
+        // include(dirname( __FILE__ ) . '/parts/project-fields-super.php');
 
     elseif( edd_has_user_purchased($user_ID, $subscriptions['premium'] ) || current_user_can('administrator') ): 
 
