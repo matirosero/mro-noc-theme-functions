@@ -1,5 +1,45 @@
 <?php
 
+add_action( 'cmb2_admin_init', 'mro_noc_user_fields_metabox' );
+/**
+ * Extra user fields
+ */
+function mro_noc_user_fields_metabox() {
+	$prefix = 'mro_noc_user_';
+	/**
+	 * Metabox for the user profile screen
+	 */
+	$cmb_user = new_cmb2_box( array(
+		'id'               => $prefix . 'boards',
+		'title'            => __( 'Active user boards', 'cmb2' ), // Doesn't output for user boxes
+		'object_types'     => array( 'user' ), // Tells CMB2 to use user_meta vs post_meta
+		'show_names'       => true,
+		'new_user_section' => 'add-new-user', // where form will show on new user page. 'add-existing-user' is only other valid option.
+	) );
+
+	$cmb_user->add_field( array(
+		'name' => esc_html__( 'Basic boards', 'mro-cit-cpt' ),
+		// 'desc' => esc_html__( 'En m2', 'mro-cit-cpt' ),
+		'id'   => $prefix . 'basic',
+		'type' => 'text_small',
+		// 'repeatable' => true,
+		// 'column' => array(
+		// 	'name'     => esc_html__( 'Column Title', 'mro-cit-cpt' ), // Set the admin column title
+		// 	'position' => 2, // Set as the second column.
+		// );
+		// 'display_cb' => 'mro_cit_demo_display_text_small_column', // Output the display of the column values through a callback.
+		'attributes' => array(
+			'type' => 'number',
+			'pattern' => '\d*',
+		),
+		//https://gist.github.com/jtsternberg/c09f5deb7d818d0d170b
+		// 'sanitization_cb' => 'absint',
+	    // 'escape_cb'       => 'absint',
+	) );
+}
+
+
+
 add_action( 'cmb2_admin_init', 'mro_noc_register_project_contact_metabox' );
 /**
  * Project contact information

@@ -72,6 +72,7 @@ require_once( dirname( __FILE__ ) . '/includes/register-gen-project-fields.php' 
  *
  * @since 0.1.0
  */
+require_once( dirname( __FILE__ ) . '/includes/frontend-link-form.php' );
 require_once( dirname( __FILE__ ) . '/includes/frontend-form.php' );
 require_once( dirname( __FILE__ ) . '/includes/frontend-form-shortcode.php' );
 require_once( dirname( __FILE__ ) . '/includes/frontend-form-handler.php' );

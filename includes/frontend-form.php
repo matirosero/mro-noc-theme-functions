@@ -3,7 +3,11 @@
  * Register the form and fields for our front-end submission form
  */
 function wds_frontend_form_register() {
+    global $user_ID;
+
     $prefix = 'noc_project_';
+
+    $subscriptions = mro_noc_subscription_array();
 
     $cmb_demo = new_cmb2_box( array(
         'id'           => 'front-end-post-form',
@@ -82,6 +86,35 @@ function wds_frontend_form_register() {
     ) );
 
     include(dirname( __FILE__ ) . '/parts/project-fields-location.php');
+
+    // var_dump($subscriptions);
+    if( edd_has_user_purchased($user_ID, $subscriptions['super'] ) || current_user_can('administrator') ): 
+
+        $cmb_demo->add_field( array(
+            'name' => esc_html__( 'Información paquete Super Premium', 'mro-cit-cpt' ),
+            'id'   => $prefix . 'title_super',
+            'type' => 'title',
+        ) );
+
+        include(dirname( __FILE__ ) . '/parts/project-fields-super.php');
+
+    elseif( edd_has_user_purchased($user_ID, $subscriptions['premium'] ) || current_user_can('administrator') ): 
+
+        $cmb_demo->add_field( array(
+            'name' => esc_html__( 'Información paquete Premium', 'mro-cit-cpt' ),
+            'id'   => $prefix . 'title_premium',
+            'type' => 'title',
+        ) );
+
+    elseif( edd_has_user_purchased($user_ID, $subscriptions['basic'] ) || current_user_can('administrator') ): 
+
+        $cmb_demo->add_field( array(
+            'name' => esc_html__( 'Información paquete Básico', 'mro-cit-cpt' ),
+            'id'   => $prefix . 'title_basic',
+            'type' => 'title',
+        ) );
+
+    endif;
 
 }
 add_action( 'cmb2_init', 'wds_frontend_form_register' );
