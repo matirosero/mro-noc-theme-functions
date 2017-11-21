@@ -3,21 +3,23 @@
  * Register the form and fields for our front-end submission form
  */
 function wds_frontend_form_register() {
-    $cmb = new_cmb2_box( array(
+    $prefix = 'noc_project_';
+
+    $cmb_demo = new_cmb2_box( array(
         'id'           => 'front-end-post-form',
         'object_types' => array( 'page' ),
         'hookup'       => false,
         'save_fields'  => false,
     ) );
 
-    $cmb->add_field( array(
+    $cmb_demo->add_field( array(
         'name'    => __( 'Nombre del proyecto', 'wds-post-submit' ),
         'id'      => 'submitted_post_title',
         'type'    => 'text',
         'default' => __( 'Nuevo proyecto', 'wds-post-submit' ),
     ) );
 
-    $cmb->add_field( array(
+    $cmb_demo->add_field( array(
         'name'    => __( 'Descripción del proyecto', 'wds-post-submit' ),
         'id'      => 'submitted_post_content',
         'type'    => 'wysiwyg',
@@ -27,7 +29,7 @@ function wds_frontend_form_register() {
         ),
     ) );
 
-    $cmb->add_field( array(
+    $cmb_demo->add_field( array(
         'name'       => __( 'Imagen principal', 'wds-post-submit' ),
         'id'         => 'submitted_post_thumbnail',
         'type'       => 'text',
@@ -35,6 +37,15 @@ function wds_frontend_form_register() {
             'type' => 'file', // Let's use a standard file upload field
         ),
     ) );
+
+
+    $cmb_demo->add_field( array(
+        'name' => esc_html__( 'Información de contacto del proyecto', 'mro-cit-cpt' ),
+        'id'   => $prefix . 'title',
+        'type' => 'title',
+    ) );
+
+    include(dirname( __FILE__ ) . '/parts/project-fields-contact.php');
 
 }
 add_action( 'cmb2_init', 'wds_frontend_form_register' );
